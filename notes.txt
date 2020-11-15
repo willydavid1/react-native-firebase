@@ -1,0 +1,42 @@
+Proyecto: Construir una app con expo y firebase para hacer una app CRUD
+
+Pasos: 
+- Utilizaremos expo cli para generar nuestro proyecto de react native https://docs.expo.io/
+  - $ npm install --global expo-cli
+  - $ expo init my-project // creamos el proyecto
+- Para Navegar entre vistas utilizaremos React Navigation
+  - $ npm install @react-navigation/native
+  - $ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view // dependencias si utilizamos expo
+  - $ npm install @react-navigation/stack
+
+---- REACT NAVIGATION ----
+
+Para crear nuestro "ENRUTADOR O NAVEGACION ENTRE VISTAS" 
+Pasos: 
+- Tenemos que importar los componentes de react-navigation en App.js
+  - import { NavigationContainer } from '@react-navigation/native'
+  - import { createStackNavigator } from '@react-navigation/stack'
+
+- Tenemos que crear nuestro stack de vistas para eso llamamos a createStackNavigator() y este nos retorna un objeto con dos propiedades Screen y Navigator
+const Stack = createStackNavigator()
+
+// Las vistas navegan en el orden de los Screen (o tabs)
+function MyStack () {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="UsersList" component={UsersList} />
+      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} />
+      <Stack.Screen name="UserDetailScreen" component={UserDetailScreen} />
+    </Stack.Navigator>
+  )
+}
+- <Stack.Navigator>{ VISTAS }</Stack.Navigator> // ESTE DEFINE EL "ENRUTADOR - NAVEGACION" Y COMO CHILDREN LOS <Stack.Screen />
+- <Stack.Screen name="UsersList" component={UsersList} /> // ESTE COMPONENTE DEFINE UNA VISTA DE LA APP CON PROPS COMO component={} componente a renderizar | name="" nombre que le daremos a esta vista | options={{ title: 'Overview' }} define las opciones de esa vista es opcional
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  )
+}
