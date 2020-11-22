@@ -13,9 +13,9 @@ const { Navigator, Screen } = createStackNavigator() // createStackNavigator es 
 function MyStack () {
   return (
     <Navigator>
-      <Screen name="CreateUserScreen" component={CreateUserScreen} />
-      <Screen name="UsersList" component={UsersList} />
-      <Screen name="UserDetailScreen" component={UserDetailScreen} />
+      <Screen name="UsersList" component={UsersList} options={{ title: 'Users List' }} />
+      <Screen name="CreateUserScreen" component={CreateUserScreen} options={{ title: 'Create a New User' }} />
+      <Screen name="UserDetailScreen" component={UserDetailScreen} options={{ title: 'User Detail' }} />
     </Navigator>
   )
 }
