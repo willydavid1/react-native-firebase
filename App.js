@@ -13,8 +13,8 @@ const { Navigator, Screen } = createStackNavigator() // createStackNavigator es 
 function MyStack () {
   return (
     <Navigator>
-      <Screen name="UsersList" component={UsersList} />
       <Screen name="CreateUserScreen" component={CreateUserScreen} />
+      <Screen name="UsersList" component={UsersList} />
       <Screen name="UserDetailScreen" component={UserDetailScreen} />
     </Navigator>
   )
